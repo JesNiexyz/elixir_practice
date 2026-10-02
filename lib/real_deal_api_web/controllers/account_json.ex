@@ -15,6 +15,16 @@ defmodule RealDealApiWeb.AccountJSON do
     %{data: data(account)}
   end
 
+  def create(%{account: account, token: token}) do
+  %{
+    data: %{
+      id: account.id,
+      email: account.email,
+      token: token
+    }
+  }
+end
+
   defp data(%Account{} = account) do
     %{
       id: account.id,

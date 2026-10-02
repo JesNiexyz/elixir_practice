@@ -4,8 +4,9 @@ import Config
 config :real_deal_api, RealDealApi.Repo,
   username: System.get_env("DEV_DB_USERNAME") || "backend_stuff",
   password: System.get_env("DEV_DB_PASSWORD") || "postgres",
-  hostname: "localhost",
-  database: "real_deal_api_dev",
+  hostname: System.get_env("DEV_DB_HOST") || "localhost",
+  port: String.to_integer(System.get_env("DEV_DB_PORT") || "5432"),
+  database: System.get_env("DEV_DB_NAME") || "real_deal_api_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
