@@ -1,0 +1,14 @@
+{
+    "sqltools.connections": [
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "100.64.0.11",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "username": "backend_stuff",
+            "database": "real_deal_api_dev",
+            "name": "bs_db"
+        }
+    ]
+}
