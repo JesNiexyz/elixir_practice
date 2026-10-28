@@ -19,7 +19,8 @@ config :task_manager, TaskManager.Repo,
 config :task_manager, TaskManagerWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}],
+  http: [ip: {100, 64, 0, 46}],
+  url: [host: "100.64.0.46"],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
@@ -53,7 +54,7 @@ config :task_manager, TaskManagerWeb.Endpoint,
 # different ports.
 
 # Enable dev routes for dashboard and mailbox
-config :task_manager, dev_routes: true
+config :task_manager, dev_routes: true, token_signing_secret: "HsktDKzBGs3AoMQPsiBSej0JtKpvOQJz"
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :default_formatter, format: "[$level] $message\n"

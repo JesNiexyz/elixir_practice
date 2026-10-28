@@ -1,4 +1,7 @@
 import Config
+config :task_manager, token_signing_secret: "yr7Pm2ESH4W91ce8RUS6Juo39Psozk+v"
+config :bcrypt_elixir, log_rounds: 1
+config :ash, disable_async?: true
 
 # Configure your database
 #

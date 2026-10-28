@@ -7,13 +7,20 @@
 # General application configuration
 import Config
 
+config :spark,
+  formatter: [
+    "Ash.Resource": [section_order: [:authentication, :token, :user_identity, :postgres]]
+  ]
+
+config :ash, known_types: [AshPostgres.Timestamptz, AshPostgres.TimestamptzUsec]
+
 config :task_manager,
   ecto_repos: [TaskManager.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configure the endpoint
 config :task_manager, TaskManagerWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "jessenielson-nixos"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
     formats: [html: TaskManagerWeb.ErrorHTML, json: TaskManagerWeb.ErrorJSON],
@@ -65,6 +72,15 @@ config :logger, :default_formatter,
 
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+config :ash,
+  known_types: [AshPostgres.Timestamptz, AshPostgres.TimestamptzUsec],
+  default_string_length_count: :codepoints
+
+config :task_manager,
+  ecto_repos: [TaskManager.Repo],
+  ash_domains: [TaskManager.Accounts],
+  generators: [timestamp_type: :utc_datetime]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
